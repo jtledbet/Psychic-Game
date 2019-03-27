@@ -89,7 +89,7 @@
             console.log(userGuess === computerGuess)
 
             // Add current guess to guessed list:
-            guessed = guessed + userGuess
+            guessed = guessed + " " + userGuess
             guessesRem--
 
             if (userGuess === computerGuess) {
@@ -104,32 +104,26 @@
             }
 
             if (guessesRem <= 0) {
-                prompts.innerHTML = "All out of guesses!"
+                prompts.innerHTML = "You're all out of guesses!<br>I'm picking a new letter!"
                 losses++
                 lossesNow.innerHTML = ("Losses: "+ losses)
                 
                 resetGame()
-                // retry = confirm("Would you like to play again?")
-                // if (retry) {
-                //     resetGame()
-                // } else {
-                //     instructions.innerHTML("Sorry to see you go.")
-                // }
+
             }
 
             // Rally the stats:
             guessesNow.innerHTML = ("Guesses remaining: " + guessesRem)
-            guessedSoFar.innerHTML = ("Guesssed so far: " +guessed)
+            guessedSoFar.innerHTML = ("Guessed so far: " + guessed)
         }
 
         function newLetter() {
-            computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+            computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)]
             instructions.innerHTML = "New letter! Guess what letter I'm thinking of."
         }
 
         function resetGame() {
-            computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-            //guessesRem = prompt("How many guesses would you like?");
+            computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)]
             guessesRem = 10
             guessed = ""
         }
