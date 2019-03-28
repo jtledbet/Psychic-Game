@@ -7,9 +7,10 @@
     <title>Psychic Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets\css\style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets\css\reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="assets\javascript\game.js"></script>
+    
     <meta name="viewport" content="width=device-width">
 </head>
 
@@ -43,93 +44,10 @@
     </h3>
 
 
-    <script type="text/javascript">
+    
 
-        // Initialize alphabet options:
-        var computerChoices = "abcdefghijklmnopqrstuvwxyz";
-        computerChoices = computerChoices.split("")
-
-        // Stats declaration:
-        var wins = 0
-        var losses = 0
-        var guessed = ""
-        var totalGuesses = 10
-        // var totalGuesses = prompt("How many guesses would you like?");
-        guessesRem = totalGuesses
-        guessesNow.innerHTML = ("Guesses remaining: " + guessesRem)
-
-        // Computer picks a letter:
-        var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
-        // When a key is pressed:
-        document.onkeyup = function (event) {
-
-        // Determines which key was pressed:
-        var userGuess = event.key;
-        // Converts to lcase:
-        userGuess = userGuess.toLowerCase();
-
-        console.log("computerGuess: " + computerGuess);
-        console.log("userGuess: " + userGuess);
-
-        console.log(computerChoices.indexOf(userGuess));
-
-        // Making sure user input is a letter of the alphabet:
-        if (computerChoices.indexOf(userGuess) != (-1)) {
-            console.log("submitting guess!")
-            submitGuess(userGuess);
-            }
-
-        }
-
-        function submitGuess(userGuess) {
-
-            console.log("inside the function!")
-            console.log(userGuess + " --- " + computerGuess)
-            console.log(userGuess === computerGuess)
-
-            // Add current guess to guessed list:
-            guessed = guessed + " " + userGuess
-            guessesRem--
-
-            if (userGuess === computerGuess) {
-                prompts.innerHTML = ("That is correct!" + "<br>The letter was " + userGuess + ".")
-                wins++
-                winsNow.innerHTML = ("Wins: " + wins)
-                newLetter()
-                guessesRem = totalGuesses
-            } else {
-                prompts.innerHTML = ("Incorrect!" + "<br> Please try again.");
-                
-            }
-
-            if (guessesRem <= 0) {
-                prompts.innerHTML = "You're all out of guesses!<br>I'm picking a new letter!"
-                losses++
-                lossesNow.innerHTML = ("Losses: "+ losses)
-                
-                resetGame()
-
-            }
-
-            // Rally the stats:
-            guessesNow.innerHTML = ("Guesses remaining: " + guessesRem)
-            guessedSoFar.innerHTML = ("Guessed so far: " + guessed)
-        }
-
-        function newLetter() {
-            computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)]
-            instructions.innerHTML = "New letter! Guess what letter I'm thinking of."
-        }
-
-        function resetGame() {
-            computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)]
-            guessesRem = 10
-            guessed = ""
-        }
-
-
-    </script>
+<script src="assets\javascript\game.js"></script>
+    
 
 </body>
 
