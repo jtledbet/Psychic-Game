@@ -73,7 +73,7 @@ function submitGuess(userGuess) {
 
     // Rally the stats:
     guessesNow.innerHTML = ("Guesses remaining: " + guessesRem)
-    guessedSoFar.innerHTML = ("Guesssed so far: " +guessed)
+    guessedSoFar.innerHTML = ("Guessed so far: " + guessed)
 }
 
 function newLetter() {
